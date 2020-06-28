@@ -1,0 +1,208 @@
+<div class="section1">
+    <app-jumbotron [GetText]="title"></app-jumbotron>
+</div>
+<div class="section2">
+    <div class="container">
+        <form class="needs-validation" [formGroup]="complexForm">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-3 col-sm-12">
+                                    <div class="justify-content-center text-center">
+                                        <img src="assets/images/noicon.png" alt="" width="100" height="150"
+                                            *ngIf="!imageUrl">
+                                        <img [src]="imageUrl" alt="Avatar" *ngIf="imageUrl" width="100" height="150">
+                                        <br> <br>
+                                        <input class="ml-2" type="file" name="file" (change)="handleInputChange($event)">
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="col-lg-9 col-sm-12">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Full Name</label>
+                                                <input class="form-control" type="text" name="name"
+                                                    [(ngModel)]="model.fullname" formControlName="fullname"
+                                                    [ngClass]="{ 'is-invalid': !f.fullname.valid && f.fullname.errors && f.fullname.touched }">
+                                                <p *ngIf="f.fullname.errors" class="invalid-feedback">
+                                                    <span *ngIf="f.fullname.errors.required && f.fullname.touched">This
+                                                        field is
+                                                        required.</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Username</label>
+                                                <input class="form-control" type="text" name="name"
+                                                    [(ngModel)]="model.username" formControlName="username"
+                                                    [ngClass]="{ 'is-invalid': !f.username.valid && f.username.errors && f.username.touched }">
+                                                <p *ngIf="f.username.errors" class="invalid-feedback">
+                                                    <span *ngIf="f.username.errors.required && f.username.touched">This
+                                                        field is
+                                                        required.</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Likes Count</label>
+                                                <input class="form-control" type="number" name="name"
+                                                    [(ngModel)]="model.likes" formControlName="likes"
+                                                    [ngClass]="{ 'is-invalid': !f.likes.valid && f.likes.errors && f.likes.touched }">
+                                                <p *ngIf="f.likes.errors" class="invalid-feedback">
+                                                    <span *ngIf="f.likes.errors.required && f.likes.touched">This field
+                                                        is
+                                                        required.</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Views Count</label>
+                                                <input class="form-control" type="number" name="name"
+                                                    [(ngModel)]="model.views" formControlName="views"
+                                                    [ngClass]="{ 'is-invalid': !f.views.valid && f.views.errors && f.views.touched }">
+                                                <p *ngIf="f.views.errors" class="invalid-feedback">
+                                                    <span *ngIf="f.views.errors.required && f.views.touched">This field
+                                                        is
+                                                        required.</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input class="form-control" type="text" name="name" [(ngModel)]="model.email"
+                                            formControlName="email"
+                                            [ngClass]="{ 'is-invalid': !f.email.valid && f.email.errors && f.email.touched }">
+                                        <p *ngIf="f.email.errors" class="invalid-feedback">
+                                            <span *ngIf="f.email.errors.required && f.email.touched">This field is
+                                                required.</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>About</label>
+                                        <input class="form-control" type="text" name="name" [(ngModel)]="model.about"
+                                            formControlName="about"
+                                            [ngClass]="{ 'is-invalid': !f.about.valid && f.about.errors && f.about.touched }">
+                                        <p *ngIf="f.about.errors" class="invalid-feedback">
+                                            <span *ngIf="f.about.errors.required && f.about.touched">This field is
+                                                required.</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Mobile Number</label>
+                                        <input class="form-control" type="text" name="name" [(ngModel)]="model.phone"
+                                            formControlName="phone"
+                                            [ngClass]="{ 'is-invalid': !f.phone.valid && f.phone.errors && f.phone.touched }">
+                                        <p *ngIf="f.phone.errors" class="invalid-feedback">
+                                            <span *ngIf="f.phone.errors.required && f.phone.touched">This field is
+                                                required.</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="education">Education</label>
+                                        <select name="education" id="education" class="form-control"
+                                            formControlName="education" [(ngModel)]="model.education"
+                                            [ngClass]="{ 'is-invalid': !f.education.valid && f.education.errors && f.education.touched }">
+                                            <option value="" selected disabled>--Select Education--</option>
+                                            <option value="B. Engineering">B. Engineering</option>
+                                            <option value="B. Technoly">B. Technoly</option>
+                                            <option value="Diploma">Diploma</option>
+                                            <option value="M. Technology">M. Technology</option>
+                                        </select>
+                                        <p *ngIf="f.education.errors" class="invalid-feedback">
+                                            <span *ngIf="f.education.errors.required && f.education.touched">This field
+                                                is
+                                                required.</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                               
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Gender</label>
+                                        <br>
+                                        <label *ngFor="let radiobutton of radioItems">
+                                            <input type="radio" name="options" (click)="gender.option = radiobutton"
+                                                [checked]="radiobutton === gender.option"><span
+                                                style="font-weight: 600;"> {{radiobutton}} </span>
+                                            &nbsp;
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="section">Hobbies</label>
+                                        <br>
+                                        <div class="form-check-inline" *ngFor="let hobby of Hobbies">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input"
+                                                    [(ngModel)]="hobby.is_Selected"
+                                                    [ngModelOptions]="{standalone: true}">{{hobby.name}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Skills</label>
+                                        <tag-input [(ngModel)]="model.skills" [ripple]="false" [modelAsStrings]="true"
+                                            placeholder="Insert a new item" formControlName="skills"
+                                            [ngClass]="{ 'is-invalid': !f.skills.valid && f.skills.errors && f.skills.touched }">
+                                        </tag-input>
+                                        <p *ngIf="f.skills.errors" class="invalid-feedback">
+                                            <span *ngIf="f.skills.errors.required && f.skills.touched">This field is
+                                                required.</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <app-add-projects (setProjectList)='getProjectList($event)'></app-add-projects>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-6 mb-3">
+
+                        </div>
+                        <div class="col-12 col-sm-5 offset-sm-1 mb-3">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col d-flex justify-content-end">
+                            <button class="btn btn-primary" (click)="create()">Save
+                                Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

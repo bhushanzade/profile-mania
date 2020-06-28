@@ -1,0 +1,136 @@
+<div class="card-footer" *ngIf="total > 0">
+   <nav aria-label="Page navigation example">
+      <ul class="pagination">
+         <li class="page-item" [class.disabled]="pageIndex === 1">
+            <a class="page-link" title="Go to previous page" (click)="pageChangeBackward()">
+               <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+            </a>
+         </li>
+         <li class="page-item" [class.active]="no === pageIndex" *ngFor="let no of totalPageNo">
+            <a class="page-link" title="You are on page no {{no}}" (click)="pageChangeIndex(no)">{{no}}</a>
+         </li>
+         <li class="page-item" [class.disabled]="pageIndex === totalSizeOfPages">
+            <a class="page-link" title="Go to next page" (click)="pageChangeForward()"><i
+                  class="fa fa-angle-double-right"></i></a>
+         </li>
+      </ul>
+   </nav>
+</div>
+
+<!-- <div>
+   <div class="container">
+       <div class="text-center">
+           <h1>Angular 2 - Pagination Example with logic like Google</h1>
+           <div *ngFor="let item of pagedItems">{{item.name}}</div>
+
+           <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+               <li [ngClass]="{disabled:pager.currentPage === 1}">
+                   <a (click)="setPage(1)">First</a>
+               </li>
+               <li [ngClass]="{disabled:pager.currentPage === 1}">
+                   <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+               </li>
+               <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                   <a (click)="setPage(page)">{{page}}</a>
+               </li>
+               <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                   <a (click)="setPage(pager.currentPage + 1)">Next</a>
+               </li>
+               <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                   <a (click)="setPage(pager.totalPages)">Last</a>
+               </li>
+           </ul>
+       </div>
+   </div>
+   <hr />
+   <div class="credits text-center">
+       <p>
+           <a href="http://jasonwatmore.com/post/2016/08/23/angular-2-pagination-example-with-logic-like-google" target="_top">Angular 2 - Pagination Example with logic like Google</a>
+       </p>
+       <p>
+           <a href="http://jasonwatmore.com" target="_top">JasonWatmore.com</a>
+       </p>
+   </div>
+</div>
+ -->
+
+
+
+
+<!-- 
+
+<div class="row">
+   <div class="col-md-12">
+      <div class="mt-3">
+         <nav aria-label="Page navigation">
+            <ul class="pagination">
+               <li class="page-item">
+                  <a class="page-link" title="Go to previous page"><i
+                        class="fa fa-angle-left"></i></a>
+               </li>
+               <li class="page-item">
+                  <a class="page-link">5</a>
+               </li>
+               <li class="page-item">
+                  <a class="page-link">6</a>
+               </li>
+               <li class="page-item">
+                  <a class="page-link">7</a>
+               </li>
+               <li class="page-item">
+                  <a class="page-link">8</a>
+               </li>
+               <li class="page-item">
+                  <a class="page-link">9</a>
+               </li>
+               
+               <li class="page-item">
+                  <a class="page-link">...</a>
+               </li>
+               <li class="page-item">
+                  <a class="page-link" title="Go to next page"><i
+                        class="fa fa-angle-right"></i></a>
+               </li>
+            </ul>
+         </nav>
+      </div>
+   </div>
+</div>
+
+<div class="row">
+   <div class="col-md-12">
+      <div class="mt-3">
+         <nav aria-label="Page navigation">
+            <ul class="pagination">
+               <li class="page-item">
+                  <a class="page-link" title="Go to previous page"><i
+                        class="fa fa-angle-left"></i></a>
+               </li>
+               <li class="page-item">
+                  <a class="page-link">9</a>
+               </li>
+               <li class="page-item">
+                  <a class="page-link">10</a>
+               </li>
+               <li class="page-item">
+                  <a class="page-link">11</a>
+               </li>
+               <li class="page-item">
+                  <a class="page-link">12</a>
+               </li>
+               <li class="page-item">
+                  <a class="page-link">13</a>
+               </li>
+               
+               <li class="page-item">
+                  <a class="page-link">...</a>
+               </li>
+               <li class="page-item">
+                  <a class="page-link" title="Go to next page"><i
+                        class="fa fa-angle-right"></i></a>
+               </li>
+            </ul>
+         </nav>
+      </div>
+   </div>
+</div> -->

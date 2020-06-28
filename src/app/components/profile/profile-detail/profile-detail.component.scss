@@ -1,0 +1,21 @@
+.section2 {
+    margin: 30px 0;
+}
+
+.user-box {
+    margin-bottom: 20px;
+    text-align: center !important;
+        text-align: -webkit-center !important;
+}
+
+.user-box img {
+    display: block !important;
+    margin: auto !important;
+    width: 150px;
+    height: 200px;
+}
+
+.z-depth-3 {
+    -webkit-box-shadow: 0 11px 7px 0 rgba(0, 0, 0, 0.19), 0 13px 25px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 11px 7px 0 rgba(0, 0, 0, 0.19), 0 13px 25px 0 rgba(0, 0, 0, 0.3);
+}

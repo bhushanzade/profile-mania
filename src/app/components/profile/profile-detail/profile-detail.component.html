@@ -1,0 +1,139 @@
+<div class="section1">
+    <app-jumbotron [GetText]="title"></app-jumbotron>
+</div>
+<div class="section2">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card z-depth-3">
+                    <div class="card-body">
+                        <div class="tab-content p-3">
+                            <div class="tab-pane active show" id="profile">
+                                <div class="title">
+                                    <button (click)="deleteProfile()"
+                                    class="btn btn-danger ml-2 text-white float-right">Delete</button>
+                                    <a [routerLink]="['../../edit',username]"
+                                        class="btn btn-info ml-2 text-white float-right">Edit</a>
+                                   
+                                    <h5 class="mb-3">User Profile</h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card-body text-center rounded-top">
+                                            <div class="user-box">
+                                                <img [src]="path + model.file" alt="user avatar" *ngIf="model.file">
+                                            </div>
+                                            <h5 class="mb-1 text-danger">{{model.fullname}}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <br>
+                                        <h6>About</h6>
+                                        <p>
+                                            {{model.about}}
+                                        </p>
+                                        <h6>Education</h6>
+                                        <p>
+                                            {{model.education}}
+                                        </p>
+                                        <h6>Hobbies</h6>
+                                        <p>
+                                            <ng-container *ngFor="let hobby of model.hobbies">
+                                                <span class="badge badge-dark">{{hobby}}</span>
+                                                &nbsp;
+                                            </ng-container>
+
+                                        </p>
+                                        <h6>Skills</h6>
+                                        <p>
+                                            <ng-container *ngFor="let skill of model.skills">
+                                                <span class="badge badge-dark">{{skill}}</span>
+                                                &nbsp;
+                                            </ng-container>
+                                        </p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5 class="mt-2 mb-3"> Basic Details</h5>
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <h6>Email</h6>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>
+                                                            {{model.email}}
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="col-4">
+                                                        <h6>Username</h6>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>
+                                                            {{model.username}}
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <h6>Gender</h6>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>
+                                                            {{model.gender}}
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <h6>Phone</h6>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <p>
+                                                            {{model.phone}}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5 class="mt-2 mb-3"> Projects List</h5>
+                                        <table class="table table-hover table-striped">
+                                            <tbody>
+                                                <tr *ngFor="let project of model.projects">
+                                                    <td>
+                                                        <h6> {{project.title}} </h6>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row text-center mt-4">
+                                    <div class="col p-2">
+                                        <h4 class="mb-1 line-height-5">{{model.project_cnt}}</h4>
+                                        <small class="mb-0 font-weight-bold">Projects</small>
+                                    </div>
+                                    <div class="col p-2">
+                                        <h4 class="mb-1 line-height-5">{{model.likes | numformater}}</h4>
+                                        <small class="mb-0 font-weight-bold">Likes</small>
+                                    </div>
+                                    <div class="col p-2">
+                                        <h4 class="mb-1 line-height-5">{{model.views | numformater}}</h4>
+                                        <small class="mb-0 font-weight-bold">Views</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
