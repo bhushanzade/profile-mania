@@ -46,7 +46,7 @@ export class ProfileService {
     );
   }
 
-  getAllProfileList(params : any): Observable<any> {
+  getAllProfileList(params: any): Observable<any> {
     const url = environment.baseURI + "/api/allList";
     this.params = params;
     const headerOptions: any = this.getHeaderOptions();
@@ -143,6 +143,17 @@ export class ProfileService {
 
   _error(error: HttpErrorResponse): any {
     switch (error.status) {
+      case 400:
+        const strings = error.error.views[0].toLowerCase();
+        const subsstring = ['ensure this value is less than or equal to 2147483647'];
+        var isFind = subsstring.map((term) => strings.includes(term)).includes(true);
+        if (isFind) {
+          var msg = "Please ensure integer value is less than or equal to 2147483647"
+          this._notify.showError(strings, 'Count');
+        }
+        else
+          this._notify.showError(error.error.views[0], 'PROFILE');
+        break;
       case 404:
         this._notify.showError(error.error.msg, 'PROFILE');
         this.route.navigate(['/page-not-found']);
@@ -153,7 +164,10 @@ export class ProfileService {
         this._notify.showError(message, 'SERVER');
         this.route.navigate(['/server-error']);
         break;
-
+      default:
+        var message = "Something went wrong please contact to technical support.";
+        this._notify.showError(message, 'SERVER');
+        break;
     }
     return throwError(error);
   }

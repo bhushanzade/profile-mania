@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseURI : 'http://127.0.0.1:8000',
+  baseURI : 'https://profiledemoapi.pythonanywhere.com',
+  // baseURI : 'http://127.0.0.1:8000',
   pageSize : 3
 };
 
